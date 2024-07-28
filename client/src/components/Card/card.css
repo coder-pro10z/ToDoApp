@@ -1,0 +1,54 @@
+/* components/TaskCard.css */
+
+.task-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff; /* White background */
+  }
+  
+  .task-card-content {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    gap: 24px; /* Space between ID, description/input field, and buttons */
+    color: #333; /* Grey text color */
+  }
+  
+  .task-card-input {
+    margin-left: 8px;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    color: #333; /* Grey text color for input */
+  }
+  
+  .task-card-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px; /* Space between buttons */
+  }
+  
+  .task-card-actions button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #fff; /* Text color in buttons */
+    background-color: #007bff; /* Button background color */
+  }
+  
+  .task-card-actions button:hover {
+    background-color: #0056b3; /* Darker button color on hover */
+  }
+  
+  /* Adding a margin to input box to create space between it and the delete button */
+  .task-card-edit-input {
+    margin-right: 16px; /* Adjust this value as needed for spacing */
+  }
+  
