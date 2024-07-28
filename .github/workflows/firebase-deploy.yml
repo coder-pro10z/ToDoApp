@@ -1,0 +1,51 @@
+name: Firebase Deploy
+
+on:
+  push:
+    branches:
+      - main # or your default branch, adjust if necessary
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14' # Specify the Node.js version you are using
+
+      - name: Install dependencies
+        run: |
+          cd client
+          npm install
+          cd ../functions
+          npm install
+
+      - name: Run linting (optional)
+        run: |
+          cd client
+          npm run lint
+          cd ../functions
+          npm run lint
+
+      - name: Run tests (optional)
+        run: |
+          cd client
+          npm test
+          cd ../functions
+          npm test
+
+      - name: Build React app
+        run: |
+          cd client
+          npm run build
+
+      - name: Deploy to Firebase
+        uses: wzieba/firebase-action@v2
+        with:
+          args: deploy --only functions,hosting
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
